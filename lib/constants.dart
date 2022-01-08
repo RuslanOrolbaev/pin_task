@@ -1,3 +1,4 @@
+const int pinLength = 4;
 const String enterYourPin = 'Enter your PIN';
 const String createPin = 'Create PIN';
 const String reEnterYourPin = 'Re-enter your PIN';

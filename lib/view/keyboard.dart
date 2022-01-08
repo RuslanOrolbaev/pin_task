@@ -13,7 +13,7 @@ class Keyboard extends StatelessWidget {
       keysForKeyBoard.add(KeyButton(
         numberToDisplay: i.toString(),
         onPressed: () {
-          keyController.sendKeyCode(i.toString());
+          keyController.processKeyCode(i.toString());
         },
       ));
     }
