@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pin_task/constants.dart';
 import 'package:pin_task/view/keyboard.dart';
+import 'package:pin_task/viewModel/key_controller.dart';
 import 'package:pin_task/viewModel/pin_indicators_row.dart';
 
 class CreatePinScreen extends StatefulWidget {
@@ -13,11 +14,16 @@ class CreatePinScreen extends StatefulWidget {
 class _CreatePinScreenState extends State<CreatePinScreen> {
   @override
   Widget build(BuildContext context) {
+    KeyController keyController = KeyController();
     return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [Text(createPin), PinIndicatorsRow(), Keyboard()],
+          children: [
+            const Text(createPin),
+            const PinIndicatorsRow(),
+            Keyboard(keyController: keyController)
+          ],
         ),
       ),
     );

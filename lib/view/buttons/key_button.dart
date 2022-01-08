@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class KeyButton extends StatelessWidget {
-  const KeyButton({Key? key, required this.numberToDisplay}) : super(key: key);
+  const KeyButton(
+      {Key? key, required this.numberToDisplay, required this.onPressed})
+      : super(key: key);
   final String numberToDisplay;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class KeyButton extends StatelessWidget {
           numberToDisplay,
           style: const TextStyle(fontSize: 24),
         ),
-        onPressed: () {},
+        onPressed: onPressed as void Function(),
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
         ),
