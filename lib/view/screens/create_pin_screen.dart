@@ -3,6 +3,7 @@ import 'package:logging/logging.dart';
 import 'package:pin_task/view/custom_widgets/pin_display.dart';
 import 'package:pin_task/view/custom_widgets/keyboard.dart';
 import 'package:pin_task/view/custom_widgets/user_instruction.dart';
+import 'package:pin_task/viewModel/context_controller.dart';
 import 'package:pin_task/viewModel/key_controller.dart';
 import 'package:pin_task/viewModel/pin_buffer.dart';
 import 'package:pin_task/viewModel/pin_indicators_row.dart';
@@ -24,6 +25,8 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
     _logger.info('running build');
     PinController pinController = PinController();
     PinBuffer pinBuffer = PinBuffer.instance;
+    ContextController contextController = ContextController.instance;
+    contextController.context = context;
     UserInstructionController userInstructionController =
         UserInstructionController.instance;
     return Scaffold(
