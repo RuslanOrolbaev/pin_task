@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:pin_task/constants.dart';
-import 'package:pin_task/model/key_code_flow.dart';
-import 'package:pin_task/view/key_code_flow_display.dart';
-import 'package:pin_task/view/keyboard.dart';
+import 'package:pin_task/view/custom_widgets/pin_display.dart';
+import 'package:pin_task/view/custom_widgets/keyboard.dart';
 import 'package:pin_task/viewModel/key_controller.dart';
+import 'package:pin_task/viewModel/pin_buffer.dart';
 import 'package:pin_task/viewModel/pin_indicators_row.dart';
+import 'package:pin_task/constants.dart' as constants;
 
 Logger _logger = Logger('Create Pin Screen');
 
@@ -20,18 +21,18 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
   @override
   Widget build(BuildContext context) {
     _logger.info('running build');
-    KeyController keyController = KeyController();
-    KeyCodeFlow keyCodeFlow = KeyCodeFlow.instance;
+    PinController pinController = PinController();
+    PinBuffer pinBuffer = PinBuffer.instance;
     return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(createPin),
-            const PinIndicatorsRow(),
-            KeyCodeFlowDisplay(keyCodeFlow: keyCodeFlow),
+            const PinIndicatorsRow(pinLength: constants.pinLength),
+            PinDisplay(pinBuffer: pinBuffer),
             Keyboard(
-              keyController: keyController,
+              keyController: pinController,
             )
           ],
         ),

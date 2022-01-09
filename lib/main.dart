@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:pin_task/constants.dart';
 import 'package:pin_task/view/screens/create_pin_screen.dart';
-import 'package:provider/provider.dart';
-import 'model/provider_classes/pin_buffer_provider.dart';
 
 Logger _logger = Logger('main');
 
@@ -17,11 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _logger.info('running build');
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => PinBufferProvider()),
-      ],
-      child: MaterialApp(
+    return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -30,8 +24,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ScreenID.createPinScreen: (context) => const CreatePinScreen()
         },
-      ),
-    );
+      );
   }
 }
 
