@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:pin_task/constants.dart';
+import 'package:pin_task/view/custom_widgets/pin_manager.dart';
+import 'package:pin_task/view/screens/auth_by_pin_screen.dart';
 import 'package:pin_task/view/screens/create_pin_screen.dart';
+import 'package:pin_task/view/screens/menu_screen.dart';
 
 Logger _logger = Logger('main');
 
@@ -16,15 +19,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     _logger.info('running build');
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: ScreenID.createPinScreen,
-        routes: {
-          ScreenID.createPinScreen: (context) => const CreatePinScreen()
-        },
-      );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: ScreenID.menuScreen,
+      routes: {
+        ScreenID.createPinScreen: (context) => const CreatePinScreen(),
+        ScreenID.menuScreen: (context) => const MenuScreen(),
+        ScreenID.authByPinScreen: (context) => const AuthByPinScreen()
+      },
+    );
   }
 }
 

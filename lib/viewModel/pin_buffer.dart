@@ -1,16 +1,25 @@
 import 'dart:async';
 
-class PinBuffer {
-  PinBuffer._createSingleton();
+abstract class IBuffer {
+  Stream get stream;
+  void update(List<String> bufferElement);
+}
 
-  static final PinBuffer _instance = PinBuffer._createSingleton();
-  static PinBuffer get instance => _instance;
+class PinBufferSingleton implements IBuffer {
+  PinBufferSingleton._createSingleton();
+  static final PinBufferSingleton _instance =
+      PinBufferSingleton._createSingleton();
+  factory PinBufferSingleton() {
+    return _instance;
+  }
 
   final _controller = StreamController<List<String>>();
 
+  @override
   Stream<List<String>> get stream => _controller.stream;
 
-  void add(List<String> pinCode) {
+  @override
+  void update(List<String> pinCode) {
     _controller.sink.add(pinCode);
   }
 }

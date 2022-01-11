@@ -7,7 +7,7 @@ Logger _logger = Logger('Pin Display');
 class PinDisplay extends StatelessWidget {
   const PinDisplay({required this.pinBuffer, Key? key}) : super(key: key);
 
-  final PinBuffer pinBuffer;
+  final PinBufferSingleton pinBuffer;
 
   @override
   Widget build(BuildContext context) {

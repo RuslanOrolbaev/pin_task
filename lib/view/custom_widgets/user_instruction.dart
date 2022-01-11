@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:pin_task/viewModel/user_instruction_controller.dart';
 
 class UserInstruction extends StatelessWidget {
   const UserInstruction(
-      {required this.initialText, required this.inputStream, Key? key})
+      {required this.initialText,
+      required this.userInstructionController,
+      Key? key})
       : super(key: key);
-  final Stream<String> inputStream;
+  final UserInstructionController userInstructionController;
   final String initialText;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
         initialData: initialText,
-        stream: inputStream,
+        stream: userInstructionController.stream,
         builder: (context, AsyncSnapshot<String> snapshot) {
           return Text(snapshot.data ?? '');
         });
