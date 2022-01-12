@@ -14,7 +14,7 @@ void main() {
   // third party packages are allowed only for storage usage. So I decided to
   // go for streams for the state management where needed
 
-  _initLogging(); //this is only for logging purposes, does not affect the logic anyhow and can be removed safely
+  _initLogging();
   runApp(const MyApp());
 }
 
