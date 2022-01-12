@@ -9,6 +9,11 @@ import 'package:pin_task/view/screens/menu_screen.dart';
 Logger _logger = Logger('main');
 
 void main() {
+  //It seems that using Provider third-party package would be more elegant
+  //for this test task, however as far as I understand the task description,
+  // third party packages are allowed only for storage usage. So I decided to
+  // go for streams for the state management where needed
+
   _initLogging();
   runApp(const MyApp());
 }

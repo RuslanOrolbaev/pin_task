@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class KeyButton extends StatelessWidget {
-  const KeyButton(
-      {Key? key, required this.numberToDisplay, required this.onPressed})
+  const KeyButton({Key? key, required this.child, required this.onPressed})
       : super(key: key);
-  final String numberToDisplay;
+  final Widget child;
   final Function onPressed;
 
   @override
@@ -14,10 +13,7 @@ class KeyButton extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints.tightFor(width: 80, height: 80),
         child: ElevatedButton(
-          child: Text(
-            numberToDisplay,
-            style: const TextStyle(fontSize: 24, color: Color(0xFF6B81A2)),
-          ),
+          child: child,
           onPressed: onPressed as void Function(),
           style: ElevatedButton.styleFrom(
             elevation: 0,

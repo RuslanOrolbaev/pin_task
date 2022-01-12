@@ -12,20 +12,26 @@ class Keyboard extends StatelessWidget {
     List<KeyButton> keysForKeyBoard = [];
     for (int i = 1; i < 10; i++) {
       keysForKeyBoard.add(KeyButton(
-        numberToDisplay: i.toString(),
+        child: Text(
+          i.toString(),
+          style: const TextStyle(fontSize: 24, color: Color(0xFF6B81A2)),
+        ),
         onPressed: () async {
           await keyController.processKeyCode(i.toString());
         },
       ));
     }
     keysForKeyBoard.add(KeyButton(
-      numberToDisplay: '0',
+      child: const Text(
+        '0',
+        style: TextStyle(fontSize: 24, color: Color(0xFF6B81A2)),
+      ),
       onPressed: () async {
         await keyController.processKeyCode('0');
       },
     ));
     keysForKeyBoard.add(KeyButton(
-        numberToDisplay: constants.backspaceSymbol,
+        child: const Icon(Icons.backspace_outlined, color: Color(0xFF6B81A2)),
         onPressed: () async {
           await keyController.processKeyCode(constants.backspaceKeyCode);
         }));

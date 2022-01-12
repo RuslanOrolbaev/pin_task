@@ -50,6 +50,6 @@ class AuthByPinController implements IKeyController {
 
   _resetPinAndUpdateUI() {
     _pin.clear();
-    _pinBuffer.update(_pin.currentPin);
+    _pinBuffer.update(_pin.currentPin.length);
   }
 }

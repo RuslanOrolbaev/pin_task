@@ -16,9 +16,9 @@ class PinOperations {
       pin.addToPin(keyCode);
     }
     if (bufferToUpdate != null) {
-      bufferToUpdate.update(pin.currentPin);
+      bufferToUpdate.update(pin.length);
     }
-    if (pin.length() == constants.pinLength) {
+    if (pin.length == constants.pinLength) {
       onPinReceivingComplete();
     }
   }

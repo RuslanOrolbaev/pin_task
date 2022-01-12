@@ -4,7 +4,7 @@ class Pin implements IPin {
   Pin(this.pinLength);
   final int pinLength;
 
-  List<String> _currentPin = [];
+  final List<String> _currentPin = [];
 
   @override
   void addToPin(String code) {
@@ -29,5 +29,5 @@ class Pin implements IPin {
   }
 
   @override
-  int length() => _currentPin.length;
+  int get length => _currentPin.length;
 }

@@ -10,13 +10,13 @@ class PinBufferController implements IBufferController {
     return _instance;
   }
 
-  final _controller = StreamController<List<String>>.broadcast();
+  final _controller = StreamController<int>.broadcast();
 
   @override
-  Stream<List<String>> get stream => _controller.stream;
+  Stream<int> get stream => _controller.stream;
 
   @override
-  void update(List<String> pinCode) {
-    _controller.sink.add(pinCode);
+  void update(int pinLength) {
+    _controller.sink.add(pinLength);
   }
 }

@@ -41,7 +41,7 @@ class PinCreationController implements IKeyController {
   _rememberTheFirstPinAndUpdateUI() {
     _firstEnteredPinCode = _pin.currentPin.toList();
     _pin.clear();
-    _pinBuffer.update(_pin.currentPin);
+    _pinBuffer.update(_pin.length);
     _pinEnteredFirstTime = false;
     _userInstructionController.text(constants.reEnterYourPin);
   }
@@ -83,7 +83,7 @@ class PinCreationController implements IKeyController {
     _userInstructionController.text(constants.enterYourPin);
     _pin.clear();
     _firstEnteredPinCode.clear();
-    _pinBuffer.update(_pin.currentPin);
+    _pinBuffer.update(_pin.length);
     _pinEnteredFirstTime = true;
   }
 }

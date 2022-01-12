@@ -13,13 +13,13 @@ class PinIndicatorsRow extends StatelessWidget {
     return StreamBuilder(
         stream: pinBufferController.stream,
         builder: (context, AsyncSnapshot snapshot) {
-          List<String>? pinCode = snapshot.data as List<String>?;
-          pinCode ??= [];
+          int? pinLength = snapshot.data as int?;
+          pinLength ??= 0;
           List<Widget> children = [];
-          for (int i = 0; i < pinCode.length; i++) {
+          for (int i = 0; i < pinLength; i++) {
             children.add(const PinIndicator(filled: true));
           }
-          for (int i = 0; i < constants.pinLength - pinCode.length; i++) {
+          for (int i = 0; i < constants.pinLength - pinLength; i++) {
             children.add(const PinIndicator(filled: false));
           }
           return Row(
