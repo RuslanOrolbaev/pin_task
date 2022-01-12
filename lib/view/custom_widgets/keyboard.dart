@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_task/view/buttons/key_button.dart';
-import 'package:pin_task/viewModel/key_controller.dart';
+import 'package:pin_task/model/i_key_controller.dart';
 import 'package:pin_task/constants.dart' as constants;
 
 class Keyboard extends StatelessWidget {

@@ -13,7 +13,7 @@ const String authenticationSuccessful = 'Authentication successful!';
 const String authenticationFailed = 'Authentication failed';
 const String keyForPinInSharedPrefs = 'pin';
 const String loading = 'Loading...';
-const String error = 'error occurred';
+const String storageError = 'Storage error occurred';
 const String noPinStored = 'No pin has been created yet';
 
 class ScreenID {

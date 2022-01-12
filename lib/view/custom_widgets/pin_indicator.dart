@@ -10,7 +10,8 @@ class PinIndicator extends StatelessWidget {
     return Container(
         width: 20,
         height: 20,
-        decoration:
-            const ShapeDecoration(shape: CircleBorder(side: BorderSide())));
+        decoration: filled
+            ? const BoxDecoration(color: Colors.green, shape: BoxShape.circle)
+            : const ShapeDecoration(shape: CircleBorder(side: BorderSide())));
   }
 }

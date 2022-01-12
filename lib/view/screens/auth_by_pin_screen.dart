@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:pin_task/model/i_storage.dart';
+import 'package:pin_task/model/helpers/pin_operations.dart';
 import 'package:pin_task/model/local_storage.dart';
 import 'package:pin_task/view/custom_widgets/pin_manager.dart';
 import 'package:pin_task/viewModel/auth_by_pin_controller.dart';
@@ -18,12 +18,13 @@ class AuthByPinScreen extends StatefulWidget {
 }
 
 class _AuthByPinScreenState extends State<AuthByPinScreen> {
-  Future<List<String>>? _initialPin;
+  Future<List<String>?>? _initialPin;
 
   @override
   void initState() {
     LocalStorage localStorage = LocalStorage();
-    _initialPin = _loadPin(localStorage, constants.keyForPinInSharedPrefs);
+    _initialPin =
+        PinOperations.loadPin(localStorage, constants.keyForPinInSharedPrefs);
     super.initState();
   }
 
@@ -34,7 +35,9 @@ class _AuthByPinScreenState extends State<AuthByPinScreen> {
         future: _initialPin,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return const MessageScreen(message: constants.error);
+            _logger.severe(
+                'error occurred: ${snapshot.error} with stackTrace: ${snapshot.stackTrace}');
+            return const MessageScreen(message: constants.storageError);
           }
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -51,16 +54,5 @@ class _AuthByPinScreenState extends State<AuthByPinScreen> {
               }
           }
         });
-  }
-
-  //TODO move to viewModel
-  Future<List<String>>? _loadPin(
-      IStorage localStorage, String keyForPinInMap) async {
-    try {
-      List<String>? storedPin = await localStorage.loadData(keyForPinInMap);
-      return Future.value(storedPin);
-    } catch (e) {
-      return Future.error(e);
-    }
   }
 }

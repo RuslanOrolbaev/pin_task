@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:pin_task/model/i_buffer.dart';
 import 'package:pin_task/view/custom_widgets/pin_indicator.dart';
+import 'package:pin_task/constants.dart' as constants;
 
-class PinIndicatorsRow extends StatefulWidget {
-  const PinIndicatorsRow({required this.pinLength, Key? key}) : super(key: key);
+class PinIndicatorsRow extends StatelessWidget {
+  const PinIndicatorsRow({required this.pinBufferController, Key? key})
+      : super(key: key);
+  final IBufferController pinBufferController;
 
-  final int pinLength; //todo assert pinLength>0
-
-  @override
-  _PinIndicatorsRowState createState() => _PinIndicatorsRowState();
-}
-
-class _PinIndicatorsRowState extends State<PinIndicatorsRow> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = [];
-    for (int i = 1; i < widget.pinLength; i++) {
-      children.add(const PinIndicator(filled: true));
-    }
-    return Row(children: children);
+    return StreamBuilder(
+        stream: pinBufferController.stream,
+        builder: (context, AsyncSnapshot snapshot) {
+          List<String>? pinCode = snapshot.data as List<String>?;
+          pinCode ??= [];
+          List<Widget> children = [];
+          for (int i = 0; i < pinCode.length; i++) {
+            children.add(const PinIndicator(filled: true));
+          }
+          for (int i = 0; i < constants.pinLength - pinCode.length; i++) {
+            children.add(const PinIndicator(filled: false));
+          }
+          return Row(children: children);
+        });
   }
 }

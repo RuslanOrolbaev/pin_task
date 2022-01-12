@@ -4,10 +4,9 @@ import 'package:pin_task/view/custom_widgets/pin_display.dart';
 import 'package:pin_task/view/custom_widgets/keyboard.dart';
 import 'package:pin_task/view/custom_widgets/user_instruction.dart';
 import 'package:pin_task/viewModel/context_controller.dart';
-import 'package:pin_task/viewModel/key_controller.dart';
-import 'package:pin_task/viewModel/pin_buffer.dart';
+import 'package:pin_task/model/i_key_controller.dart';
+import 'package:pin_task/model/pin_buffer_controller.dart';
 import 'package:pin_task/viewModel/pin_indicators_row.dart';
-import 'package:pin_task/constants.dart' as constants;
 import 'package:pin_task/viewModel/user_instruction_controller.dart';
 
 Logger _logger = Logger('Pin Screen');
@@ -20,7 +19,7 @@ class PinManager extends StatelessWidget {
   final String? initialUserInstructionText;
   final UserInstructionController userInstructionController =
       UserInstructionController.instance;
-  final PinBufferSingleton pinBuffer = PinBufferSingleton();
+  final PinBufferController pinBufferController = PinBufferController();
   final ContextController contextController = ContextController.instance;
 
   @override
@@ -35,8 +34,8 @@ class PinManager extends StatelessWidget {
             UserInstruction(
                 initialText: initialUserInstructionText ?? '',
                 userInstructionController: userInstructionController),
-            const PinIndicatorsRow(pinLength: constants.pinLength),
-            PinDisplay(pinBuffer: pinBuffer),
+            PinIndicatorsRow(pinBufferController: pinBufferController),
+            PinDisplay(pinBuffer: pinBufferController),
             Keyboard(
               keyController: pinController,
             )

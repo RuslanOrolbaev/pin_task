@@ -1,4 +1,4 @@
 abstract class IStorage {
   loadData(String uid);
-  Future<void> saveData(dynamic data);
+  Future<void> saveData(dynamic data, [String? uid]);
 }

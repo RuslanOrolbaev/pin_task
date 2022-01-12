@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:pin_task/constants.dart';
-import 'package:pin_task/view/custom_widgets/pin_manager.dart';
 import 'package:pin_task/view/screens/auth_by_pin_screen.dart';
 import 'package:pin_task/view/screens/create_pin_screen.dart';
 import 'package:pin_task/view/screens/menu_screen.dart';

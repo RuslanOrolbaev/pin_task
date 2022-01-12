@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:pin_task/viewModel/pin_buffer.dart';
+import 'package:pin_task/model/pin_buffer_controller.dart';
 
 Logger _logger = Logger('Pin Display');
 
 class PinDisplay extends StatelessWidget {
   const PinDisplay({required this.pinBuffer, Key? key}) : super(key: key);
 
-  final PinBufferSingleton pinBuffer;
+  final PinBufferController pinBuffer;
 
   @override
   Widget build(BuildContext context) {
