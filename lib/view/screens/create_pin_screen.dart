@@ -5,7 +5,6 @@ import 'package:pin_task/constants.dart' as constants;
 
 class CreatePinScreen extends StatelessWidget {
   const CreatePinScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return PinManager(

@@ -7,7 +7,7 @@ class UserInstructionController {
       UserInstructionController._createSingleton();
   static UserInstructionController get instance => _instance;
 
-  final _controller = StreamController<String>();
+  final _controller = StreamController<String>.broadcast();
 
   Stream<String> get stream => _controller.stream;
 

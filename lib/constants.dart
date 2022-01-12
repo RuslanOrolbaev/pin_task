@@ -11,6 +11,10 @@ const String authByPinCodeButtonTitle = 'Authentication by PIN code';
 const String createPinCodeButtonTitle = 'Create PIN code';
 const String authenticationSuccessful = 'Authentication successful!';
 const String authenticationFailed = 'Authentication failed';
+const String keyForPinInSharedPrefs = 'pin';
+const String loading = 'Loading...';
+const String error = 'error occurred';
+const String noPinStored = 'No pin has been created yet';
 
 class ScreenID {
   static const String menuScreen = 'menuScreen';

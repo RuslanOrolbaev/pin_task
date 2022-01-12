@@ -13,7 +13,7 @@ class PinBufferSingleton implements IBuffer {
     return _instance;
   }
 
-  final _controller = StreamController<List<String>>();
+  final _controller = StreamController<List<String>>.broadcast();
 
   @override
   Stream<List<String>> get stream => _controller.stream;
