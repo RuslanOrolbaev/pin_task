@@ -8,21 +8,25 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          TextButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                    context, constants.ScreenID.createPinScreen);
-              },
-              child: const Text(constants.createPinCodeButtonTitle)),
-          TextButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                    context, constants.ScreenID.authByPinScreen);
-              },
-              child: const Text(constants.authByPinCodeButtonTitle))
-        ],
+          child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                      context, constants.ScreenID.createPinScreen);
+                },
+                child: const Text(constants.createPinCodeButtonTitle)),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                      context, constants.ScreenID.authByPinScreen);
+                },
+                child: const Text(constants.authByPinCodeButtonTitle))
+          ],
+        ),
       )),
     );
   }

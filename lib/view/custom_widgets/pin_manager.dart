@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:pin_task/view/custom_widgets/pin_display.dart';
 import 'package:pin_task/view/custom_widgets/keyboard.dart';
 import 'package:pin_task/view/custom_widgets/user_instruction.dart';
 import 'package:pin_task/viewModel/context_controller.dart';
@@ -31,11 +30,16 @@ class PinManager extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 50),
             UserInstruction(
                 initialText: initialUserInstructionText ?? '',
                 userInstructionController: userInstructionController),
-            PinIndicatorsRow(pinBufferController: pinBufferController),
-            PinDisplay(pinBuffer: pinBufferController),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 8.0),
+              child: PinIndicatorsRow(pinBufferController: pinBufferController),
+            ),
+            const SizedBox(height: 60.0),
             Keyboard(
               keyController: pinController,
             )

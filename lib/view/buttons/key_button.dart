@@ -9,16 +9,21 @@ class KeyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints.tightFor(width: 50, height: 50),
-      child: ElevatedButton(
-        child: Text(
-          numberToDisplay,
-          style: const TextStyle(fontSize: 24),
-        ),
-        onPressed: onPressed as void Function(),
-        style: ElevatedButton.styleFrom(
-          shape: const CircleBorder(),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints.tightFor(width: 80, height: 80),
+        child: ElevatedButton(
+          child: Text(
+            numberToDisplay,
+            style: const TextStyle(fontSize: 24, color: Color(0xFF6B81A2)),
+          ),
+          onPressed: onPressed as void Function(),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            primary: const Color(0xFFF7F5FA),
+            shape: const CircleBorder(),
+          ),
         ),
       ),
     );

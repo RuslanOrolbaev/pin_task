@@ -4,7 +4,6 @@ class Pin implements IPin {
   Pin(this.pinLength);
   final int pinLength;
 
-  @override
   List<String> _currentPin = [];
 
   @override

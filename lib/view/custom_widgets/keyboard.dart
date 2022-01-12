@@ -10,7 +10,7 @@ class Keyboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<KeyButton> keysForKeyBoard = [];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 1; i < 10; i++) {
       keysForKeyBoard.add(KeyButton(
         numberToDisplay: i.toString(),
         onPressed: () async {
@@ -19,10 +19,16 @@ class Keyboard extends StatelessWidget {
       ));
     }
     keysForKeyBoard.add(KeyButton(
+      numberToDisplay: '0',
+      onPressed: () async {
+        await keyController.processKeyCode('0');
+      },
+    ));
+    keysForKeyBoard.add(KeyButton(
         numberToDisplay: constants.backspaceSymbol,
         onPressed: () async {
           await keyController.processKeyCode(constants.backspaceKeyCode);
         }));
-    return Wrap(children: keysForKeyBoard);
+    return Wrap(spacing: 10, children: keysForKeyBoard);
   }
 }

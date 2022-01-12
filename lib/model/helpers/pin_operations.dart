@@ -44,8 +44,6 @@ class PinOperations {
 
   static Future<void> savePin(
       List<String> pin, String pinUid, IStorage localStorage) async {
-    try {
-      await localStorage.saveData(pin, pinUid);
-    } catch (e) {}
+    await localStorage.saveData(pin, pinUid);
   }
 }

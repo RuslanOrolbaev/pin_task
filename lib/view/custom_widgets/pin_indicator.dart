@@ -7,11 +7,16 @@ class PinIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 20,
-        height: 20,
-        decoration: filled
-            ? const BoxDecoration(color: Colors.green, shape: BoxShape.circle)
-            : const ShapeDecoration(shape: CircleBorder(side: BorderSide())));
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+          width: 10,
+          height: 10,
+          decoration: filled
+              ? const BoxDecoration(
+                  color: Color(0xFF8F74FA), shape: BoxShape.circle)
+              : const ShapeDecoration(
+                  shape: CircleBorder(side: BorderSide(color: Colors.grey)))),
+    );
   }
 }

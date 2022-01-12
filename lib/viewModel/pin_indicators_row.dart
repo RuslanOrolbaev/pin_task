@@ -22,7 +22,8 @@ class PinIndicatorsRow extends StatelessWidget {
           for (int i = 0; i < constants.pinLength - pinCode.length; i++) {
             children.add(const PinIndicator(filled: false));
           }
-          return Row(children: children);
+          return Row(
+              mainAxisAlignment: MainAxisAlignment.center, children: children);
         });
   }
 }
